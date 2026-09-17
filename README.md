@@ -1,6 +1,6 @@
 # NFFNSNC
 
-> NON FUI, FUI, NON SUM, NON CURO
+> NON FUI, FUI, NON SUM, NON CURO. 
 > "I was not, I was, I am not, I do not care."
 
 If I am ever out of action, whether through an accident, illness or something similarly unpleasant, the question arises of how to make important information available to my family.
