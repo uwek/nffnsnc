@@ -71,8 +71,12 @@ if [[ "$ACTUAL_FILES" != "$EXPECTED_FILES" ]]; then
   echo "  gefunden: $ACTUAL_FILES" >&2
   exit 1
 fi
-if grep -rqF "$(head -c 12 "$SRC_MD")" "$BUILD_DIR" 2>/dev/null; then
-  echo "FEHLER: Klartext aus $SRC_MD im Build-Verzeichnis gefunden!" >&2
+# Jede Zeile der Quelle ab 20 Zeichen darf nirgends im Build-Ordner auftauchen.
+LEAK_PATTERNS="$(mktemp -t nffnsnc-leak)"
+trap 'rm -f "$TMP_PDF" "$LEAK_PATTERNS"' EXIT
+awk 'length($0) >= 20' "$SRC_MD" > "$LEAK_PATTERNS"
+if [[ -s "$LEAK_PATTERNS" ]] && grep -rlF -f "$LEAK_PATTERNS" "$BUILD_DIR"; then
+  echo "FEHLER: Klartext aus $SRC_MD im Build-Verzeichnis gefunden (Datei siehe oben)!" >&2
   exit 1
 fi
 echo "Build OK: $ACTUAL_FILES"
