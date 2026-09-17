@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Notfall-Dokument</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card">
+    <h2>NFFNSNC</h2>
+    <p>Geben Sie die Passphrase aus dem Brief ein. Die Entschlüsselung findet vollständig in Ihrem Browser statt.</p>
+
+    <form id="decryptForm" method="post" action="#" autocomplete="on" novalidate>
+      <label for="passwordInput" class="visually-hidden">Passphrase</label>
+      <div class="password-row">
+        <input type="password" id="passwordInput" name="password"
+               placeholder="Passphrase eingeben" autofocus
+               autocomplete="current-password" autocapitalize="off"
+               autocorrect="off" spellcheck="false" />
+        <button type="button" id="togglePassword" class="btn-toggle"
+                aria-pressed="false" aria-label="Passphrase anzeigen">Anzeigen</button>
+      </div>
+      <p class="hint">Groß-/Kleinschreibung beachten. Leerzeichen zwischen den Wörtern sind Teil der Passphrase. Die Prüfung kann einige Sekunden dauern.</p>
+
+      <div class="button-group">
+        <button type="submit" id="btnView" class="btn-view" data-action="view">PDF anzeigen</button>
+        <button type="submit" id="btnDownload" class="btn-download" data-action="download">Herunterladen</button>
+      </div>
+    </form>
+
+    <div id="status" role="status" aria-live="polite"></div>
+
+    <p class="footer">
+      <a id="offlineLink" href="nffnsnc-offline.html" download>Offline-Kopie dieser Seite speichern</a>
+      (eine Datei, funktioniert ohne Internet)
+    </p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

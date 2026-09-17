@@ -1,0 +1,13 @@
+doc/*
+
+# Build-Artefakte (nffnsnc.enc wird von prep.sh erzeugt, nie einchecken)
+nffnsnc.enc
+.dist
+
+# Local Netlify folder
+.netlify
+
+.venv
+.trash
+.DS_Store
+__pycache__/

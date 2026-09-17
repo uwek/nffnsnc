@@ -1,0 +1,7 @@
+# Sicherer Default: nur der Build-Ordner wird deployt, auch bei `netlify deploy` ohne --dir.
+[build]
+  publish = ".dist"
+
+# Netlify darf app.js/index.html nicht umschreiben (Minify, Bundling).
+[build.processing]
+  skip_processing = true
